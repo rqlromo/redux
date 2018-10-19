@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addProduct } from "../actions";
+import '../stylesheets/Form.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class Form extends React.Component {
 
   _add(event) {
     event.preventDefault();
-    console.log("lentorra!");
     this.props.addProduct(this.state);
     this.setState({
       prod: ""
@@ -33,16 +33,19 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div className="container-list">
-        <h3>ProductList</h3>
-        <form onSubmit={this._add}>
-          <label htmlFor="">Introduce un articulo al catalogo</label>
+      <div>
+        <form className="form-container" onSubmit={this._add}>
+          <label htmlFor="">
+            Introduce un articulo al catalogo
+          </label>
           <input
             type="text"
-            // value={this.state.prod}
+            value={this.state.prod}
             onChange={this.handleChangeInput}
           />
-          <button type="submit">Añadir Producto!</button>
+          <button type="submit">
+            Añadir Producto!
+          </button>
         </form>
       </div>
     );

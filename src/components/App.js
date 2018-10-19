@@ -10,7 +10,7 @@ class App extends Component {
       <div className="container-market">
         <header>
           <h1>
-            MarketPlace chachi Pistachi
+            Fundete la tarjeta
           </h1>
         </header>
         <div className="subcontainer-market">

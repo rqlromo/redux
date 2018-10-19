@@ -16,7 +16,7 @@ class List extends Component {
   }
 }
 
-//tenemos acceso a un props que se va a llamar list y otro que se va a llamar search
+//tenemos acceso a un props que se llama listProducts
 //el state nos lo devuelve el callback de mapStateToProps (es como el event de los addEventListener)
 function mapStateToProps(state) {
   return {

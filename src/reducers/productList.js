@@ -17,7 +17,8 @@ export default function contentReducer(state = initialState, action) {
       return { ...state, listProducts: state.listProducts.concat([action.product]) }
       // return Object.assign({}, state, {
       //   listProducts: state.listProducts.concat([action.product]),
-      //   name: action.name
+      //   name: action.name,
+      //   avatar: action.avatar,
       // });
 
     default:

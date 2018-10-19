@@ -17,12 +17,6 @@ body {
   text-align: center;
 }
 
-.container-list {
-  border: 10px solid red;
-  width: 32%;
-  text-align: center;
-}
-
 .subcontainer-market {
   padding-top: 5%;
   display: flex;
