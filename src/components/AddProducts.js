@@ -10,32 +10,47 @@ class AddProducts extends React.Component {
       prod: ""
     };
 
-    this._add = this._add.bind(this);
+    this._addToCatalogue = this._addToCatalogue.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleFocusInput = this.handleFocusInput.bind(this);
   }
 
-  _add(event) {
+  _addToCatalogue(event) {
     event.preventDefault();
     this.props.addProductToCatalogue(this.state);
   }
 
   handleChangeInput(e) {
     this.setState({
-      prod: e.target.value
+      prod: e.target.value,
+    });
+  }
+
+  handleFocusInput(event){
+    this.setState({
+      prod: '',
+    },
+    () => {
+
     });
   }
 
   render() {
     return (
       <div>
-        <form className="form-container" onSubmit={this._add}>
+        <form 
+          className="form-container" 
+          onSubmit={this._addToCatalogue}
+        >
           <label htmlFor="">
             Introduce un articulo al catalogo
           </label>
           <input
             type="text"
             value={this.state.prod}
-            onChange={this.handleChangeInput}
+            onChange=
+            {this.handleChangeInput}
+            onFocus={this.handleFocusInput}
           />
           <button type="submit">
             Añadir Producto!

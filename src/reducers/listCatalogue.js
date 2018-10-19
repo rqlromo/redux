@@ -16,7 +16,7 @@ export default function contentReducer(state = initialState, action) {
     case ADD_PRODUCT_TO_CATALOGUE:
       return { 
         ...state, 
-        listProducts: state.listProducts.concat([action.product]),
+        listProducts: state.listProducts.concat([action.catalogueProduct]),
       }
       // return Object.assign({}, state, {
       //   listProducts: state.listProducts.concat([action.product]),

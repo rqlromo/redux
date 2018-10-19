@@ -1,13 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addProductToCart } from "../actions";
+import { addProductToFavs } from "../actions";
 
 class ShowProducts extends Component {
+  // constructor(props) {
+  //   super(props);
+
+
+  //   this._addToCart = this._addToCart.bind(this);
+  // }
+
+  // _addToCart(event,product) {
+  //   event.preventDefault();
+  //   this.props.addProductToCart(product);
+  // }
+
   render() {
     return (
       <div>
         <ul>
           {this.props.listProducts.map((product, index) => {
-            return <li key={index}>{product.prod}</li>;
+            return <li key={index}>
+              {product.prod}
+              <button onClick={()=> this.props.addProductToCart(product)}>
+                comprar
+              </button>
+              <button onClick={()=> this.props.addProductToFavs(product)}>
+                favoritear
+              </button>
+            </li>;
           })}
         </ul>
       </div>
@@ -25,7 +47,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    addProductToCart: cartProduct => dispatch(addProductToCart(cartProduct)),
+    addProductToFavs: favouriteProduct => dispatch(addProductToFavs(favouriteProduct)),
+  };
 }
 
 export default connect(
