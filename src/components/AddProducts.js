@@ -1,27 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addProduct } from "../actions";
+import { addProductToCatalogue } from "../actions";
 import '../stylesheets/Form.css';
 
 class AddProducts extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      prod: ""
+    };
 
     this._add = this._add.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
-  state = {
-    prod: ""
-  };
-
   _add(event) {
     event.preventDefault();
-    this.props.addProduct(this.state);
-    this.setState({
-      prod: ""
-    });
+    this.props.addProductToCatalogue(this.state);
   }
 
   handleChangeInput(e) {
@@ -57,8 +52,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addProduct: product => dispatch(addProduct(product))
-    // crea: (contact) => dispatch(addContact(contact))
+    addProductToCatalogue: catalogueProduct => dispatch(addProductToCatalogue(catalogueProduct)),
   };
 }
 
