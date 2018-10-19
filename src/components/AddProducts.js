@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addProduct } from "../actions";
 import '../stylesheets/Form.css';
 
-class Form extends React.Component {
+class AddProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -25,7 +25,6 @@ class Form extends React.Component {
   }
 
   handleChangeInput(e) {
-    console.log(e.target.value);
     this.setState({
       prod: e.target.value
     });
@@ -66,4 +65,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Form);
+)(AddProducts);

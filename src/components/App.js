@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 // import logo from '../logo.svg';
 import '../App.css';
-import ProductList from './ProductList';
-import SecondaryProductList from './SecondaryProductList';
+import Catalogue from './Catalogue';
+import Cart from './Cart';
+import Favourites from './Favourites';
 
 class App extends Component {
   render() {
@@ -14,9 +15,9 @@ class App extends Component {
           </h1>
         </header>
         <div className="subcontainer-market">
-          <ProductList/>
-          <SecondaryProductList/>
-          <SecondaryProductList/>
+          <Catalogue/>
+          <Cart/>
+          <Favourites/>
         </div>
       </div>
     );
