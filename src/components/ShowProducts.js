@@ -15,6 +15,7 @@ class ShowProducts extends Component {
       <div>
         <ul>
           {this.props.listProducts.map((product, index) => {
+            console.log('product',product);
             return <li key={index}>
               {product}
               <button onClick={()=> this.props.addProductToCart(product)}>
@@ -34,6 +35,7 @@ class ShowProducts extends Component {
 //tenemos acceso a un props que se llama listProducts
 //el state nos lo devuelve el callback de mapStateToProps (es como el event de los addEventListener)
 function mapStateToProps(state) {
+  console.log('state.listCatalogue',state.listCatalogue)
   return {
     //con state.listCatalogue.listProducts accedemos al estado global, luego tenemos que acceder al estado del reducer que deseeemos y despues a la clave del estado que queramos
     listProducts: state.listCatalogue.listProducts,

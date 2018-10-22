@@ -1,7 +1,9 @@
 import { 
     ADD_PRODUCT_TO_CATALOGUE ,
     ADD_PRODUCT_TO_CART,
-    ADD_PRODUCT_TO_FAVOURITES
+    ADD_PRODUCT_TO_FAVOURITES,
+    DELETE_PRODUCT_FROM_CART,
+    DELETE_PRODUCT_FROM_FAVOURITES,
 } from "./constants";
 
 export function addProductToCatalogue(catalogueProduct) {
@@ -21,6 +23,20 @@ export function addProductToCart(cartProduct) {
 export function addProductToFavs(favouriteProduct) {
   return {
     type: ADD_PRODUCT_TO_FAVOURITES,
+    favouriteProduct,
+  };
+}
+
+export function deteleProductFromCart(cartProduct) {
+  return {
+    type: DELETE_PRODUCT_FROM_CART,
+    cartProduct,
+  };
+}
+
+export function deteleProductFromFavs(favouriteProduct) {
+  return {
+    type: DELETE_PRODUCT_FROM_FAVOURITES,
     favouriteProduct,
   };
 }
