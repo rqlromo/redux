@@ -14,7 +14,6 @@ const initialState = {
 export default function contentReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT_TO_CATALOGUE:
-      console.log('action.catalogueProduct',action.catalogueProduct)
       return { 
         ...state, 
         listProducts: state.listProducts.concat([action.catalogueProduct]),
