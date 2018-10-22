@@ -10,7 +10,7 @@ class Cart extends React.Component {
         <div>
           <ul>
             {this.props.listCart.map((product, index) => {
-              return <li key={index}>{product.prod}</li>;
+              return <li key={index}>{product}</li>;
             })}
           </ul>
         </div>

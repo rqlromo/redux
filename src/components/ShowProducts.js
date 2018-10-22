@@ -4,12 +4,6 @@ import { addProductToCart } from "../actions";
 import { addProductToFavs } from "../actions";
 
 class ShowProducts extends Component {
-  // constructor(props) {
-  //   super(props);
-
-
-  //   this._addToCart = this._addToCart.bind(this);
-  // }
 
   // _addToCart(event,product) {
   //   event.preventDefault();
@@ -22,7 +16,7 @@ class ShowProducts extends Component {
         <ul>
           {this.props.listProducts.map((product, index) => {
             return <li key={index}>
-              {product.prod}
+              {product}
               <button onClick={()=> this.props.addProductToCart(product)}>
                 comprar
               </button>

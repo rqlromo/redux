@@ -17,7 +17,7 @@ class AddProducts extends React.Component {
 
   _addToCatalogue(event) {
     event.preventDefault();
-    this.props.addProductToCatalogue(this.state);
+    this.props.addProductToCatalogue(this.state.prod);
   }
 
   handleChangeInput(e) {

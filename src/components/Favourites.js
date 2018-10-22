@@ -9,7 +9,7 @@ class Favourites extends React.Component {
 
         <ul>
           {this.props.listFav.map((product, index) => {
-            return <li key={index}>{product.prod}</li>;
+            return <li key={index}>{product}</li>;
           })}
         </ul>
       </div>
