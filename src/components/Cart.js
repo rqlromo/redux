@@ -10,7 +10,12 @@ class Cart extends React.Component {
         <div>
           <ul>
             {this.props.listCart.map((product, index) => {
-              return <li key={index}>{product}</li>;
+              return <li key={index}>
+                {product}
+                <button  >
+                  borrar
+                </button>
+                </li>;
             })}
           </ul>
         </div>
@@ -26,7 +31,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    
+  };
 }
 
 export default connect(
