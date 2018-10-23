@@ -12,13 +12,17 @@ class AddProducts extends React.Component {
 
     this._addToCatalogue = this._addToCatalogue.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
-    this.handleFocusInput = this.handleFocusInput.bind(this);
+    // this.handleFocusInput = this.handleFocusInput.bind(this);
+    // this.handlePressEnter = this.handlePressEnter.bind(this);
   }
 
   _addToCatalogue(event) {
     event.preventDefault();
     console.log('this.state',this.state);
     this.props.addProductToCatalogue(this.state.prod);
+    this.setState({
+      prod: ' ',
+    });
   }
 
   handleChangeInput(event) {
@@ -26,13 +30,7 @@ class AddProducts extends React.Component {
       prod: event.target.value
     });
   }
-
-  handleFocusInput() {
-    this.setState({
-      prod: ' ',
-    });
-  }
-
+  
   render() {
     return (
       <div>
@@ -42,7 +40,6 @@ class AddProducts extends React.Component {
             type="text"
             value={this.state.prod}
             onChange={this.handleChangeInput}
-            onFocus={this.handleFocusInput}
           />
           <button type="submit">Añadir Producto!</button>
         </form>

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { deteleProductFromFavs } from "../actions";
+
 class Favourites extends React.Component {
   render() {
     return (
@@ -9,14 +11,22 @@ class Favourites extends React.Component {
 
         <ul>
           {this.props.listFav.map((product, index) => {
-            return <li key={index}>{product.unit}</li>;
+            return (
+              <li key={index}>
+                {product.unit}
+                <button
+                  onClick={() => this.props.deteleProductFromFavs(product)}
+                >
+                  borrar
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return {
@@ -25,7 +35,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    deteleProductFromFavs: favouriteProduct =>
+      dispatch(deteleProductFromFavs(favouriteProduct))
+  };
 }
 
 export default connect(

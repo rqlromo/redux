@@ -1,6 +1,6 @@
 import {
   ADD_PRODUCT_TO_FAVOURITES,
-  DELETE_PRODUCT_FROM_FAVOURITES
+  DELETE_PRODUCT_FROM_FAVOURITES,
 } from "../constants";
 
 const initialState = {
@@ -15,10 +15,16 @@ export default function contentReducer(state = initialState, action) {
         listFav: state.listFav.concat([action.favouriteProduct])
       };
 
+
     case DELETE_PRODUCT_FROM_FAVOURITES:
+
+      let listFavFilter = state.listFav.filter(productFilter => {
+        return productFilter.id !== action.favouriteProduct.id;
+      });
+
       return {
         ...state,
-        listFav: state.listFav.concat([action.favouriteProduct])
+        listFav: listFavFilter
       };
 
     default:
