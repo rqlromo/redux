@@ -19,6 +19,7 @@ export default function contentReducer(state = initialState, action) {
     case DELETE_PRODUCT_FROM_FAVOURITES:
 
       let listFavFilter = state.listFav.filter(productFilter => {
+        console.log('action.favouriteProduct.id',action.favouriteProduct.id.length);
         return productFilter.id !== action.favouriteProduct.id;
       });
 
