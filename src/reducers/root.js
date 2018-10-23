@@ -1,10 +1,14 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import productList from './productList'
+import listCatalogue from './listCatalogue';
+import listCart from './listCart';
+import listFavourites from './listFavourites';
 
 //genera el store general
 const rootReducer = combineReducers({
-  productList,
+  listCatalogue,
+  listCart,
+  listFavourites,
 })
 
 export default rootReducer
