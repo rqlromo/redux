@@ -17,6 +17,7 @@ class AddProducts extends React.Component {
 
   _addToCatalogue(event) {
     event.preventDefault();
+    console.log('this.state',this.state);
     this.props.addProductToCatalogue(this.state.prod);
   }
 
@@ -28,7 +29,7 @@ class AddProducts extends React.Component {
 
   handleFocusInput() {
     this.setState({
-      prod: " ",
+      prod: ' ',
     });
   }
 

@@ -11,12 +11,13 @@ class ShowProducts extends Component {
   // }
 
   render() {
+    console.log('this.props',this.props)
     return (
       <div>
         <ul>
           {this.props.listProducts.map((product, index) => {
             return <li key={index}>
-              {product}
+              {product.unit}
               <button onClick={()=> this.props.addProductToCart(product)}>
                 comprar
               </button>

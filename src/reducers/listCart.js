@@ -16,9 +16,11 @@ export default function contentReducer(state = initialState, action) {
       };
 
     case DELETE_PRODUCT_FROM_CART:
+    if(state.listCart.includes(action.cartProduct.id)){
+      state.listCart.splice(action.cartProduct.id-1,1);
+    }
       return {
-        ...state,
-        listCart: state.listCart.concat([action.cartProduct])
+        state
       };
 
     default:
