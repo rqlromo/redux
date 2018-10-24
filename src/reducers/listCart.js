@@ -15,31 +15,25 @@ export default function contentReducer(state = initialState, action) {
 
     case DELETE_PRODUCT_FROM_CART:
       console.log("antes de filter", state.listCart);
-      
-      let listCartFilter = state.listCart.filter(productFilter => {
-        return productFilter.id !== action.cartProduct.id;
+
+      let checkedProduct = state.listCart.find(productFilter => {
+        return productFilter.id === action.cartProduct.id;
       });
-      
-      
+
+      let index = state.listCart.indexOf(checkedProduct);
+
+      let spliceado = state.listCart.splice(index, 1);
+
+      console.log("checkedProduct", checkedProduct);
+      console.log("index", index);
+      console.log("spliceado", spliceado);
+      console.log("state.listCart", state.listCart);
+
       return {
         ...state,
-        listCart: listCartFilter,
+        listCart: state.listCart.concat([state.listCart])
       };
 
-    // console.log('state.listCart fuera de if',state.listCart);
-    //   state.listCart.map(productCart => {
-    //     console.log("productCart.id", productCart.id);
-    //     console.log('action.cartProduct.id',action.cartProduct.id);
-
-    //     if (productCart.id === action.cartProduct.id) {
-    //       console.log('entro?')
-    //       state.listCart.splice(action.cartProduct.id - 1, 1);
-    //       console.log('state.listCart dentro de if',state.listCart);
-    //     }
-    //   });
-    //   console.log("llega aqui?");
-    //   console.log("state",state);
-    //   return state;
     default:
       return state;
   }
