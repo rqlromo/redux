@@ -44,7 +44,10 @@ export default function contentReducer(state = initialState, action) {
 
       return {
         ...state,
-        listFav: state.listFav.concat([state.listFav])
+        listFav: [
+          ...state.listFav.slice(0, index),
+          ...state.listFav.slice(index)
+        ]
       };
 
     default:

@@ -23,7 +23,6 @@ export default function contentReducer(state = initialState, action) {
 
       console.log("checkedProduct", checkedProduct);
       console.log("index", index);
-      // console.log("spliceado", spliceado);
       console.log("state.listCart", state.listCart);
 
       return {
