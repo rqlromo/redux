@@ -19,18 +19,21 @@ export default function contentReducer(state = initialState, action) {
 
       let index = state.listCart.indexOf(checkedProduct);
 
-      let spliceado = state.listCart.splice(index, 1);
+      state.listCart.splice(index, 1);
 
       console.log("checkedProduct", checkedProduct);
       console.log("index", index);
-      console.log("spliceado", spliceado);
+      // console.log("spliceado", spliceado);
       console.log("state.listCart", state.listCart);
 
       return {
         ...state,
-        listCart: state.listCart.concat([state.listCart])
+        listCart: [
+          ...state.listCart.slice(0, index),
+          ...state.listCart.slice(index)
+        ]
       };
-      
+
     default:
       return state;
   }
