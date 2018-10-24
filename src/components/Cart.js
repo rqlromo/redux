@@ -12,7 +12,6 @@ class Cart extends React.Component {
         <div>
           <ul>
             {this.props.listCart.map((product, index) => {
-              console.log('raquel',this.props.listCart)
               return (
                 <li key={index}>
                   {product.unit}

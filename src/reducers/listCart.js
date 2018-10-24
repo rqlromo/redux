@@ -7,14 +7,15 @@ const initialState = {
 export default function contentReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT_TO_CART:
-      console.log("action.cartProduct", action.cartProduct.id);
+      if (state.listCart.find(action.cartProduct.unit)){
+        console.log('hay otro!');
+      }
       return {
         ...state,
         listCart: state.listCart.concat([action.cartProduct])
       };
 
     case DELETE_PRODUCT_FROM_CART:
-      console.log("antes de filter", state.listCart);
 
       let checkedProduct = state.listCart.find(productFilter => {
         return productFilter.id === action.cartProduct.id;
