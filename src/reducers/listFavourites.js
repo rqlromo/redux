@@ -15,17 +15,36 @@ export default function contentReducer(state = initialState, action) {
         listFav: state.listFav.concat([action.favouriteProduct])
       };
 
+    // case DELETE_PRODUCT_FROM_FAVOURITES:
+
+    //   let listFavFilter = state.listFav.filter(productFilter => {
+    //     console.log('action.favouriteProduct.id',action.favouriteProduct.id.length);
+    //     return productFilter.id !== action.favouriteProduct.id;
+    //   });
+
+    //   return {
+    //     ...state,
+    //     listFav: listFavFilter
+    //   };
 
     case DELETE_PRODUCT_FROM_FAVOURITES:
 
-      let listFavFilter = state.listFav.filter(productFilter => {
-        console.log('action.favouriteProduct.id',action.favouriteProduct.id.length);
-        return productFilter.id !== action.favouriteProduct.id;
+      let checkedProduct = state.listFav.find(productFilter => {
+        return productFilter.id === action.favouriteProduct.id;
       });
+
+      let index = state.listFav.indexOf(checkedProduct);
+
+      let spliceado = state.listFav.splice(index, 1);
+
+      console.log("checkedProduct", checkedProduct);
+      console.log("index", index);
+      console.log("spliceado", spliceado);
+      console.log("state.listFav", state.listFav);
 
       return {
         ...state,
-        listFav: listFavFilter
+        listFav: state.listFav.concat([state.listFav])
       };
 
     default:
