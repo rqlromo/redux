@@ -12,26 +12,28 @@ const initialState = {
 //Es equivalente a spread operators
 
 export default function contentReducer(state = initialState, action) {
-  console.log('state',state)
   switch (action.type) {
     case ADD_PRODUCT_TO_CATALOGUE:
       return {
-  // Con la opcion de spread:
-        listProducts: [...state.listProducts, {
-          unit: action.catalogueProduct,
-          id: state.listProducts.length + 1   
-        }]
+        // Con la opcion de spread:
+        listProducts: [
+          ...state.listProducts,
+          {
+            unit: action.catalogueProduct,
+            id: state.listProducts.length + 1
+          }
+        ]
+      };
 
-  // Con la opcion de concat:
-      // ...state,
-      // listProducts : state.listProducts.concat(
-      // [
-      //   {
-      //     unit: action.catalogueProduct,
-      //     id: state.listProducts.length + 1
-      //   }
-      // ])
-    }
+    // Con la opcion de concat:
+    // ...state,
+    // listProducts : state.listProducts.concat(
+    // [
+    //   {
+    //     unit: action.catalogueProduct,
+    //     id: state.listProducts.length + 1
+    //   }
+    // ])
 
     // return Object.assign({}, state, {
     //   listProducts: state.listProducts.concat([action.product]),

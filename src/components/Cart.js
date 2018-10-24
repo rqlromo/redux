@@ -2,21 +2,24 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { deteleProductFromCart } from "../actions";
+import "../stylesheets/Cart.css";
 
 class Cart extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div className="container-list">
-        <h3>Cart</h3>
-
+        <h3>
+          Cart
+        </h3>
         <div>
           <ul>
             {this.props.listCart.map((product, index) => {
-              console.log('raquel',this.props.listCart)
               return (
                 <li key={index}>
                   {product.unit}
                   <button
+                    className=""
                     onClick={() => this.props.deteleProductFromCart(product)}
                   >
                     borrar
@@ -33,7 +36,7 @@ class Cart extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    listCart: state.listCart.listCart
+    listCart: state.listCart.listCart,
   };
 }
 
