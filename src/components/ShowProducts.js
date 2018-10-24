@@ -4,27 +4,29 @@ import { addProductToCart } from "../actions";
 import { addProductToFavs } from "../actions";
 
 class ShowProducts extends Component {
-
   // _addToCart(event,product) {
   //   event.preventDefault();
   //   this.props.addProductToCart(product);
   // }
 
   render() {
-    console.log('this.props',this.props)
     return (
       <div>
         <ul>
           {this.props.listProducts.map((product, index) => {
-            return <li key={index}>
-              {product.unit}
-              <button onClick={()=> this.props.addProductToCart(product)}>
-                comprar
-              </button>
-              <button onClick={()=> this.props.addProductToFavs(product)}>
-                favoritear
-              </button>
-            </li>;
+            return (
+              <li key={index}>
+                {product.unit}
+                <button 
+                onClick={() => this.props.addProductToCart(product)}
+                >
+                  comprar
+                </button>
+                <button onClick={() => this.props.addProductToFavs(product)}>
+                  favoritear
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -37,14 +39,15 @@ class ShowProducts extends Component {
 function mapStateToProps(state) {
   return {
     //con state.listCatalogue.listProducts accedemos al estado global, luego tenemos que acceder al estado del reducer que deseeemos y despues a la clave del estado que queramos
-    listProducts: state.listCatalogue.listProducts,
+    listProducts: state.listCatalogue.listProducts
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     addProductToCart: cartProduct => dispatch(addProductToCart(cartProduct)),
-    addProductToFavs: favouriteProduct => dispatch(addProductToFavs(favouriteProduct)),
+    addProductToFavs: favouriteProduct =>
+      dispatch(addProductToFavs(favouriteProduct))
   };
 }
 

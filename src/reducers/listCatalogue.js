@@ -16,6 +16,7 @@ export default function contentReducer(state = initialState, action) {
     case ADD_PRODUCT_TO_CATALOGUE:
       // Con la opcion de spread:
       return {
+        // Con la opcion de spread:
         listProducts: [
           ...state.listProducts,
           {
