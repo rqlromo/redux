@@ -3,33 +3,28 @@ import { ADD_PRODUCT_TO_CART, DELETE_PRODUCT_FROM_CART } from "../constants";
 const initialState = {
   listCart: []
 };
-let contador = 0;
+
 export default function contentReducer(state = initialState, action) {
-  
   switch (action.type) {
     case ADD_PRODUCT_TO_CART:
-      contador += 1;
-      console.log('contador suma',contador);
       return {
         ...state,
         listCart: state.listCart.concat([action.cartProduct])
       };
 
-      // return {
-      //   // Con la opcion de spread:  
-      //   listCart: [
-      //     ...state.listCart,
-      //     {
-      //       unit: action.cartProduct,
-      //       id: state.listCart.length + 1,
-      //       counter: state.counter + 1,
-      //     }
-      //   ]
-      // };
+    // return {
+    //   // Con la opcion de spread:
+    //   listCart: [
+    //     ...state.listCart,
+    //     {
+    //       unit: action.cartProduct,
+    //       id: state.listCart.length + 1,
+    //       counter: state.counter + 1,
+    //     }
+    //   ]
+    // };
 
     case DELETE_PRODUCT_FROM_CART:
-      contador -= 1;
-      console.log('contador resta',contador);
       let checkedProduct = state.listCart.find(productFilter => {
         return productFilter.id === action.cartProduct.id;
       });
@@ -38,9 +33,9 @@ export default function contentReducer(state = initialState, action) {
 
       state.listCart.splice(index, 1);
 
-      console.log("checkedProduct", checkedProduct);
-      console.log("index", index);
-      console.log("state.listCart", state.listCart);
+      // console.log("checkedProduct", checkedProduct);
+      // console.log("index", index);
+      // console.log("state.listCart", state.listCart);
 
       return {
         ...state,

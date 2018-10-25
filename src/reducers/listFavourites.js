@@ -25,10 +25,10 @@ export default function contentReducer(state = initialState, action) {
 
       let spliceado = state.listFav.splice(index, 1);
 
-      console.log("checkedProduct", checkedProduct);
-      console.log("index", index);
-      console.log("spliceado", spliceado);
-      console.log("state.listFav", state.listFav);
+      // console.log("checkedProduct", checkedProduct);
+      // console.log("index", index);
+      // console.log("spliceado", spliceado);
+      // console.log("state.listFav", state.listFav);
 
       return {
         ...state,

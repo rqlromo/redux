@@ -34,9 +34,9 @@ class Cart extends React.Component {
         <h3>Cart</h3>
         <div>
           <ul>
-            {listCartIDUnique.map(id => {
+            {listCartIDUnique.map((id, index) => {
               return (
-                <li>
+                <li key={index}>
                   <p>
                     {this.find_product_by_id(id).unit}
                   </p>
