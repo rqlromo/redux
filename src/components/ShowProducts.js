@@ -10,6 +10,8 @@ class ShowProducts extends Component {
   // }
 
   render() {
+    console.log(this.props.listProducts);
+    
     return (
       <div>
         <ul>
