@@ -5,22 +5,53 @@ import { deteleProductFromCart } from "../actions";
 import "../stylesheets/Cart.css";
 
 class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.unique = this.unique.bind(this);
+    this.find_product_by_id = this.find_product_by_id.bind(this);
+  }
+
+  unique = (value, index, self) => {
+    return self.indexOf(value) === index;
+  };
+
+  find_product_by_id = id => {
+    var elementWithID = this.props.listCart.find(function(element) {
+      return element.id === id;
+    });
+    return elementWithID;
+  };
+
   render() {
-    console.log('raquel',this.props)
+    const listCartID = this.props.listCart.map((ident) => {
+      return ident.id;
+    });
+
+    const listCartIDUnique = listCartID.filter(this.unique);
+
     return (
       <div className="container-list">
-        <h3>
-          Cart
-        </h3>
+        <h3>Cart</h3>
         <div>
           <ul>
-            {this.props.listCart.map((product, index) => {
+            {listCartIDUnique.map(id => {
               return (
-                <li key={index}>
-                  {product.unit}
+                <li>
+                  <p>
+                    {this.find_product_by_id(id).unit}
+                  </p>
+                  <div>
+                    {
+                      listCartID.filter(elem => {
+                        return elem === id;
+                      }).length
+                    }
+                  </div>
                   <button
                     className=""
-                    onClick={() => this.props.deteleProductFromCart(product)}
+                    onClick={() =>
+                      this.props.deteleProductFromCart(this.find_product_by_id(id))
+                    }
                   >
                     borrar
                   </button>
@@ -36,7 +67,7 @@ class Cart extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    listCart: state.listCart.listCart,
+    listCart: state.listCart.listCart
   };
 }
 

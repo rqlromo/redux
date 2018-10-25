@@ -15,18 +15,6 @@ export default function contentReducer(state = initialState, action) {
         listFav: state.listFav.concat([action.favouriteProduct])
       };
 
-    // case DELETE_PRODUCT_FROM_FAVOURITES:
-
-    //   let listFavFilter = state.listFav.filter(productFilter => {
-    //     console.log('action.favouriteProduct.id',action.favouriteProduct.id.length);
-    //     return productFilter.id !== action.favouriteProduct.id;
-    //   });
-
-    //   return {
-    //     ...state,
-    //     listFav: listFavFilter
-    //   };
-
     case DELETE_PRODUCT_FROM_FAVOURITES:
 
       let checkedProduct = state.listFav.find(productFilter => {

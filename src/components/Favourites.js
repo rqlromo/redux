@@ -4,18 +4,52 @@ import { connect } from "react-redux";
 import { deteleProductFromFavs } from "../actions";
 
 class Favourites extends React.Component {
+  constructor(props) {
+    super(props);
+    this.unique = this.unique.bind(this);
+    this.find_product_by_id = this.find_product_by_id.bind(this);
+  }
+
+  unique = (value, index, self) => {
+    return self.indexOf(value) === index;
+  };
+
+  find_product_by_id = id => {
+    var elementWithID = this.props.listFav.find(function(element) {
+      return element.id === id;
+    });
+    return elementWithID;
+  };
+
   render() {
+    const listFavID = this.props.listFav.map(ident => {
+      return ident.id;
+    });
+
+    const listFavIDUnique = listFavID.filter(this.unique);
+
     return (
       <div className="container-list">
         <h3>Favourites</h3>
 
         <ul>
-          {this.props.listFav.map((product, index) => {
+          {listFavIDUnique.map((id, index) => {
             return (
               <li key={index}>
-                {product.unit}
+                <p>{this.find_product_by_id(id).unit}</p>
+                <div>
+                  {
+                    listFavID.filter(elem => {
+                      return elem === id;
+                    }).length
+                  }
+                </div>
                 <button
-                  onClick={() => this.props.deteleProductFromFavs(product)}
+                  onClick={() =>
+                    this.props.deteleProductFromFavs(
+                      this.find_product_by_id(id)
+                    )
+                  }
                 >
                   borrar
                 </button>

@@ -8,7 +8,6 @@ export default function contentReducer(state = initialState, action) {
   
   switch (action.type) {
     case ADD_PRODUCT_TO_CART:
-      // return action.cartProduct.counter + 1;
       contador += 1;
       console.log('contador suma',contador);
       return {
@@ -17,7 +16,7 @@ export default function contentReducer(state = initialState, action) {
       };
 
       // return {
-      //   // Con la opcion de spread:
+      //   // Con la opcion de spread:  
       //   listCart: [
       //     ...state.listCart,
       //     {

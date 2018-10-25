@@ -22,7 +22,6 @@ export default function contentReducer(state = initialState, action) {
           {
             unit: action.catalogueProduct,
             id: state.listProducts.length + 1,
-            counter: 0,
           }
         ]
       };
