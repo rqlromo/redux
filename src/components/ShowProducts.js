@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addProductToCart } from "../actions";
-import { addProductToFavs } from "../actions";
+import { 
+  addProductToCart,
+  addProductToFavs, 
+  deleteAllProducts,
+} from "../actions";
 
 class ShowProducts extends Component {
   // _addToCart(event,product) {
@@ -11,7 +14,7 @@ class ShowProducts extends Component {
 
   render() {
     console.log(this.props.listProducts);
-    
+
     return (
       <div>
         <ul>
@@ -19,13 +22,14 @@ class ShowProducts extends Component {
             return (
               <li key={index}>
                 {product.unit}
-                <button 
-                onClick={() => this.props.addProductToCart(product)}
-                >
+                <button onClick={() => this.props.addProductToCart(product)}>
                   comprar
                 </button>
                 <button onClick={() => this.props.addProductToFavs(product)}>
                   favoritear
+                </button>
+                <button onClick={() => this.props.deleteAllProducts(product)}>
+                  borrar todos
                 </button>
               </li>
             );
@@ -49,7 +53,9 @@ function mapDispatchToProps(dispatch) {
   return {
     addProductToCart: cartProduct => dispatch(addProductToCart(cartProduct)),
     addProductToFavs: favouriteProduct =>
-      dispatch(addProductToFavs(favouriteProduct))
+      dispatch(addProductToFavs(favouriteProduct)),
+    deleteAllProducts: deleteProducts =>
+      dispatch(deleteAllProducts(deleteProducts))
   };
 }
 

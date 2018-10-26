@@ -1,6 +1,7 @@
 import {
   ADD_PRODUCT_TO_FAVOURITES,
   DELETE_PRODUCT_FROM_FAVOURITES,
+  DELETE_ALL_PRODUCTS,
 } from "../constants";
 
 const initialState = {
@@ -16,7 +17,6 @@ export default function contentReducer(state = initialState, action) {
       };
 
     case DELETE_PRODUCT_FROM_FAVOURITES:
-
       let checkedProduct = state.listFav.find(productFilter => {
         return productFilter.id === action.favouriteProduct.id;
       });
@@ -36,6 +36,17 @@ export default function contentReducer(state = initialState, action) {
           ...state.listFav.slice(0, index),
           ...state.listFav.slice(index)
         ]
+      };
+
+    case DELETE_ALL_PRODUCTS:
+      let checkedCart = state.listFav.filter(productFilter => {
+        return productFilter.id !== action.deleteProducts.id;
+      });
+      // console.log("checkedCart", checkedCart);
+
+      return {
+        ...state,
+        listFav: checkedCart
       };
 
     default:

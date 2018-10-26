@@ -1,4 +1,8 @@
-import { ADD_PRODUCT_TO_CART, DELETE_PRODUCT_FROM_CART } from "../constants";
+import { 
+  ADD_PRODUCT_TO_CART, 
+  DELETE_PRODUCT_FROM_CART, 
+  DELETE_ALL_PRODUCTS 
+} from "../constants";
 
 const initialState = {
   listCart: []
@@ -43,6 +47,18 @@ export default function contentReducer(state = initialState, action) {
           ...state.listCart.slice(0, index),
           ...state.listCart.slice(index)
         ]
+      };
+
+
+      case DELETE_ALL_PRODUCTS:
+      let checkedCart = state.listCart.filter(productFilter => {
+        return productFilter.id !== action.deleteProducts.id;
+      });
+      // console.log("checkedCart", checkedCart);
+
+      return {
+        ...state,
+        listCart: checkedCart,
       };
 
     default:

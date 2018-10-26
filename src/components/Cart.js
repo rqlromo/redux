@@ -23,6 +23,7 @@ class Cart extends React.Component {
   };
 
   render() {
+    console.log('this.props en cart',this.props)
     const listCartID = this.props.listCart.map((ident) => {
       return ident.id;
     });

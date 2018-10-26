@@ -4,6 +4,7 @@ import {
     ADD_PRODUCT_TO_FAVOURITES,
     DELETE_PRODUCT_FROM_CART,
     DELETE_PRODUCT_FROM_FAVOURITES,
+    DELETE_ALL_PRODUCTS,
 } from "./constants";
 
 export function addProductToCatalogue(catalogueProduct) {
@@ -38,5 +39,12 @@ export function deteleProductFromFavs(favouriteProduct) {
   return {
     type: DELETE_PRODUCT_FROM_FAVOURITES,
     favouriteProduct,
+  };
+}
+
+export function deleteAllProducts(deleteProducts) {
+  return {
+    type: DELETE_ALL_PRODUCTS,
+    deleteProducts,
   };
 }
