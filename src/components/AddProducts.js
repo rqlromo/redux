@@ -7,7 +7,7 @@ class AddProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prod: " "
+      prod: ""
     };
 
     this._addToCatalogue = this._addToCatalogue.bind(this);
@@ -17,18 +17,20 @@ class AddProducts extends React.Component {
   }
 
   _addToCatalogue(event) {
-    //if (this.state.prod !== " ") {
-      event.preventDefault();
-      this.props.addProductToCatalogue(this.state.prod);
+
+    let value = this.state.prod.trim();
+    event.preventDefault();
+    if (value !== "") {
+      this.props.addProductToCatalogue(value);
       this.setState({
-        prod: " "
+        prod: ""
       });
-    //}
+    }
   }
 
   handleChangeInput(event) {
     this.setState({
-      prod: event.target.value
+      prod: event.target.value,
     });
   }
 
