@@ -17,13 +17,13 @@ class AddProducts extends React.Component {
   }
 
   _addToCatalogue(event) {
-    if (this.state.prod !== " ") {
+    //if (this.state.prod !== " ") {
       event.preventDefault();
       this.props.addProductToCatalogue(this.state.prod);
       this.setState({
         prod: " "
       });
-    }
+    //}
   }
 
   handleChangeInput(event) {
