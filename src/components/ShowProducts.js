@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { 
+import {
   addProductToCart,
-  addProductToFavs, 
-  deleteAllProducts,
+  addProductToFavs,
+  deleteAllProducts
 } from "../actions";
 
 class ShowProducts extends Component {
@@ -13,8 +13,6 @@ class ShowProducts extends Component {
   // }
 
   render() {
-    console.log('this.props.listProducts',this.props.listProducts);
-
     return (
       <div>
         <ul>
@@ -45,7 +43,7 @@ class ShowProducts extends Component {
 function mapStateToProps(state) {
   return {
     //con state.listCatalogue.listProducts accedemos al estado global, luego tenemos que acceder al estado del reducer que deseeemos y despues a la clave del estado que queramos
-    listProducts: state.listCatalogue.listProducts,
+    listProducts: state.listCatalogue.listProducts
   };
 }
 

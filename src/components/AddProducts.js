@@ -17,11 +17,13 @@ class AddProducts extends React.Component {
   }
 
   _addToCatalogue(event) {
-    event.preventDefault();
-    this.props.addProductToCatalogue(this.state.prod);
-    this.setState({
-      prod: ' ',
-    });
+    if (this.state.prod !== " ") {
+      event.preventDefault();
+      this.props.addProductToCatalogue(this.state.prod);
+      this.setState({
+        prod: " "
+      });
+    }
   }
 
   handleChangeInput(event) {
@@ -29,7 +31,7 @@ class AddProducts extends React.Component {
       prod: event.target.value
     });
   }
-  
+
   render() {
     return (
       <div>
