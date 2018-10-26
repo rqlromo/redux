@@ -1,4 +1,7 @@
-import { ADD_PRODUCT_TO_CATALOGUE } from "../constants";
+import { 
+  ADD_PRODUCT_TO_CATALOGUE,
+  DELETE_ALL_PRODUCTS,
+} from "../constants";
 
 const initialState = {
   listProducts: []
@@ -21,7 +24,7 @@ export default function contentReducer(state = initialState, action) {
           ...state.listProducts,
           {
             unit: action.catalogueProduct,
-            id: state.listProducts.length + 1,
+            id: state.listProducts.length + 1
           }
         ]
       };
@@ -40,6 +43,16 @@ export default function contentReducer(state = initialState, action) {
     //   name: action.name,
     //   avatar: action.avatar,
     // });
+
+    case DELETE_ALL_PRODUCTS:
+      let checkedCart = state.listProducts.filter(productFilter => {
+        return productFilter.id !== action.deleteProducts.id;
+      });
+
+      return {
+        ...state,
+        listProducts: checkedCart
+      };
 
     default:
       return state;
